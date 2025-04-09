@@ -1,10 +1,10 @@
 terraform {
   backend "s3" {
-    bucket         = "tekanaid-terragrunt-demo"
+    bucket         = "stepsei-terraform-terragrunt"
     key            = "wordpress/dev/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
-    dynamodb_table = "my-lock-table"
+    dynamodb_table = "stepseiterraformterragrunt"
   }
 }
 
@@ -26,7 +26,7 @@ module aws_wordpress {
     subnet3_cidr = "10.0.3.0/24"     //Private subnet for RDS
     PUBLIC_KEY_PATH  = "./mykey-pair.pub" // key name for ec2, make sure it is created before terrafomr apply
     PRIV_KEY_PATH    = "./mykey-pair"
-    instance_type    = "t2.micro"    //type of instance
-    instance_class   = "db.t2.micro" //type of RDS Instance
+    instance_type    = "t3.micro"    //type of instance 
+    instance_class   = "db.t3.micro" //type of RDS Instance db.t4g.micro or db.t3.micro
     root_volume_size = 22
 }
